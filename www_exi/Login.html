@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=0">
+    <title>GalaxyMobileApplication</title>
+    <style>
+        #APPContent {
+            background-color: #065da1;
+        }
+    </style>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+    <!--<script src="scripts/winstore-jscompat.js"></script>-->
+    <script src="scripts/jquery-1.12.0.min.js"></script>
+    <!--<script type="text/javascript">
+    jQuery.isUnsafe = true;
+    </script>-->
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" />
+    <!--<script src="scripts/Jquery-Mobile-1.4.5.js"></script>-->
+    <script src="scripts/LoadingModel.js"></script>
+    <script src="scripts/LoaderShow-Hide.js"></script>
+    <script src="scripts/dialog.js"></script>
+    <script src="scripts/alert.mob.js"></script>
+    <!--<link href="css/jqueryMobile_1.4.5.min.css" rel="stylesheet" />-->
+    <link href="css/custom.css" rel="stylesheet" />
+    <link href="css/Loader.css" rel="stylesheet" />
+    <link href="css/dialog.css" rel="stylesheet" />
+    <link href="css/alert.mob.css" rel="stylesheet" />
+    <link href="css/Common.css" rel="stylesheet" />
+    <link href="css/General.css" rel="stylesheet" />
+    <link href="css/sticky-footer.css" rel="stylesheet" />
+    <script src="scripts/bootstrap-add-clear.js"></script>
+    <script src="js/General.js"></script>
+    <script src="js/Login.js"></script>
+</head>
+
+<body style="background-color:#065da1;">
+    <!--<div class="container-fluid">
+        <div id="APPContent">
+            <div id="APPHeader">
+                <img src="images/LoginTopSreen.png" style="width:90%;" />
+            </div>
+            <div data-role="main" class="ui-content">
+                <input type="text" id="txtUserName" data-clear-btn="true" placeholder="Enter User Id">
+                <input type="password" id="txtPassword" data-clear-btn="true" placeholder="Enter Password">
+                <div style="width:10%;float:left;display:inline;margin-top:2px">
+                    <input type="checkbox" id="chkRemember">
+                </div>
+                <div style="width:80%;float:left;display:inline;margin-top:6px">
+                    <label style="color:black!important;font-weight:bold;font-size:12px;text-shadow:none">Remember Me</label>
+                </div>
+                <center>
+                    <a href="#" style="width:70px;background-color: #bcd233;color: white;" class="ui-btn ui-btn-inline ui-mini" id="LoginBtn" onclick="ShowLoader(); RememberCheck(); ProcessLogin();">Login</a>
+                </center>
+            </div>
+            <div id="APPfooter">
+                <img src="images/LoginBottomScreen.png" style="width:100%;" />
+                <center>
+                    <label style="color:white;font-size:10px;">Powered by Kale Logistics Solutions Private Limited</label>
+                </center>
+            </div>
+        </div>
+    </div>-->
+
+    <div class="container">
+        <form class="form-inline">
+            <div class="row">
+                <!--<center><img src="images/LoginTopSreen1.png" style="width:78%;margin-top: 8px;" /></center>-->
+                <center><img src="images/LoginTopSreen12.png" style="margin-top: 8px;" /></center>
+            </div>
+        </form>
+        <div class="add-clear-span form-group has-feedback" style="margin-top: 13px;">
+            <input class="form-control" style="height:35px;font-size:medium" type="text" id="txtUserName"
+                placeholder="Enter User Id" autofocus>
+        </div>
+        <div class="add-clear-span form-group has-feedback">
+            <input class="form-control" style="height:35px;font-size:medium" type="password" id="txtPassword"
+                placeholder="Enter Password">
+        </div>
+        <form role="form">
+
+            <div class="checkbox">
+                <input id="chkRemember" type="checkbox" style="margin-left: 0px;"><label style="color:white;"
+                    id="lblrememberme">Remember Me</label>
+            </div>
+            <div class="row" style="margin-top:5px;">
+                <div class="form-group col-xs-4 col-sm-4 col-md-4">
+                    <input class="form-control btn-success btn-block hvr-glow ButtonColor"
+                        style="height:35px;font-size:medium" value="Exit" type="button" id="ExitBtn"
+                        onclick="exitFromApp();" />
+                </div>
+                <div class="form-group col-xs-4 col-sm-4 col-md-4">
+                    <input class="form-control btn-success btn-block hvr-glow ButtonColor"
+                        style="height:35px;font-size:medium" value="Login" type="button" id="LoginBtn"
+                        onclick="RememberCheck(); ProcessLogin(); " />
+                </div>
+                <div class="form-group col-xs-4 col-sm-4 col-md-4">
+                    <input class="form-control btn-success btn-block hvr-glow ButtonColor"
+                        style="height:35px;font-size:medium" value="Clear" type="button" id="ClearBtn"
+                        onclick="clearALL();" />
+                </div>
+            </div>
+
+        </form>
+        <form class="form-inline">
+            <div class="row">
+                <center><img src="images/LoginBottomScreen.png" style="width:100%" /></center>
+            </div>
+        </form>
+        <center>
+            <label style="color:white;font-size:12px;">App Version 1.0.32</label>
+        </center>
+        <center>
+            <label style="color:white;font-size:10px;">Powered by Kale Logistics Solutions Private Limited</label>
+        </center>
+    </div>
+    <!--<div>
+        <footer class="footer" style="color: white; font-size :12px; background-color:#065da1;">
+            <div class="container">
+                <center><p class="text-muted" id="RightsReserved"></p></center>
+            </div>
+        </footer>
+    </div>-->
+</body>
+<!--<script language="javascript" type="text/javascript">
+    $('#RightsReserved').text(' \xA9 Kale Logistics Solutions Private Limited. ' + (new Date).getFullYear().toString());
+</script>-->
+
+</html>

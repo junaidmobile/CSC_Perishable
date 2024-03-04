@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=0">
+    <script src="cordova.js"></script>
+    <script src="scripts/platformOverrides.js"></script>
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/font-awesome.css" rel="stylesheet" />
+    <script src="scripts/modernizr.custom.js"></script>
+    <link href="css/animate.css" rel="stylesheet" />
+    <script src="scripts/wow.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/jquery-1.12.0.min.js"></script>
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="scripts/metisMenu.min.js"></script>
+    <link href="css/custom.css" rel="stylesheet" />
+    <link href="css/sticky-footer.css" rel="stylesheet" />
+    <link href="css/General.css" rel="stylesheet" />
+    <link href="css/hover.css" rel="stylesheet" />
+    <script src="js/General.js"></script> 
+    <link href="css/style.css" rel="stylesheet" />
+    <script src="scripts/IMPFlightCheck.js"></script>
+    <script src="scripts/TableRowsAddDelete.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header" style="background-color:#065da1;">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" id="btnnavbar" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" id="navhdrName" style="text-align:right;"></a>
+                <img class="navbarImage" src="images/Logo.png" onclick="ShowHomePage();">
+                <a href="#" id="navhdr" class="loggedinUser"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+
+            </div>
+        </div>         
+    </nav>
+    <div class="container-fluid" style="margin-top:63px;">
+        <div class="panel-body">
+            <div class="panel panel-widget forms-panel form-grids widget-shadow">
+                <div class="forms">
+                    <div class="form-body">
+                        <form>
+                            <div style="display:inline">
+                                <p class="lead">Shipment Binning</p>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-xs-12 col-sm-3 col-md-2">
+                                    <label id="lblMAWBNo" for="txtMAWBNo" class="control-label labelFont">MAWB No.</label>
+                                    <input type="text" id="txtMAWBNo" class="form-control" placeholder="MAWB No." autofocus>
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-2 col-md-2">
+                                    <label id="lblHAWBNo" for="ddlHAWBNo" class="control-label">HAWB No. </label>
+                                    <select class="form-control" id="ddlHAWBNo">
+                                        <option value="0">Select</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-4 col-md-4">
+                                    <label id="lblIGMNo" for="ddlIGMNo" class="control-label">IGM No.</label>
+                                    <select class="form-control" id="ddlIGMNo">
+                                        <option value="0">Select</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-2 col-md-2" style="margin-top:2%">
+                                    <input type="button" id="btnGetDetail" class="form-control btn-success" value="Get Location" onclick="">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-widget forms-panel form-grids widget-shadow">
+                <div class="forms">
+                    <div class="form-body">
+                        <form>
+                            <div style="display:inline">
+                                <p class="lead">Location Details</p>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-xs-12 col-sm-4 col-md-2">
+                                    <label id="lblIGMNo" for="ddlCommodity" class="control-label">Commodity</label>
+                                    <select class="form-control" id="ddlCommodity">
+                                        <option value="0">Select</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-2 col-md-2">
+                                    <label id="lblArrivedPkgs" for="txtArrivedPkgs" class="control-label">Arrived Pkgs.</label>
+                                    <input type="text" id="txtArrivedPkgs" class="form-control" placeholder="Arrived Pkgs.">
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-2 col-md-2">
+                                    <label id="lblArrivedGrWt" for="txtArrivedGrWt" class="control-label">Arrived Gr. Wt.</label>
+                                    <input type="text" id="txtArrivedGrWt" class="form-control" placeholder="Arrived Gr. Wt.">
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-2 col-md-2">
+                                    <label id="lblChargeableWt" for="txtChargeableWt" class="control-label">Chargeable Wt.</label>
+                                    <input type="text" id="txtChargeableWt" class="form-control" placeholder="Chargeable Wt.">
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-2 col-md-2">
+                                    <label id="lblTerminal" for="ddlTerminal" class="control-label">Terminal</label>
+                                    <select class="form-control" id="ddlTerminal">
+                                        <option value="0">Select</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-2 col-md-2">
+                                    <label id="lblArea" for="ddlArea" class="control-label">Area</label>
+                                    <select class="form-control" id="ddlArea">
+                                        <option value="0">Select</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-2 col-md-2">
+                                    <label id="lblLocation" for="ddlLocation" class="control-label">Location</label>
+                                    <select class="form-control" id="ddlLocation">
+                                        <option value="0">Select</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-2 col-md-2">
+                                    <label id="lblBinPkgs" for="txtBinPkgs" class="control-label">Bin Pkgs.</label>
+                                    <input type="text" id="txtBinPkgs" class="form-control" placeholder="Bin Pkgs.">
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-2 col-md-2" style="margin-top:2%">
+                                    <input type="button" id="btnLocate" class="form-control btn-success" value="Locate" onclick="">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

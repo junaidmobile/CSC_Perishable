@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=0">
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/jquery-1.12.0.min.js"></script>
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/sticky-footer.css" rel="stylesheet" />
+    <script src="scripts/LoadingModel.js"></script>
+    <script src="scripts/LoaderShow-Hide.js"></script>
+    <script src="scripts/Login.js"></script>
+    <script src="scripts/dialog.js"></script>
+    <script src="js/General.js"></script>
+    <link href="css/General.css" rel="stylesheet" />
+    <script src="scripts/alert.mob.js"></script>
+    <link href="css/Loader.css" rel="stylesheet" />
+    <link href="css/dialog.css" rel="stylesheet" />
+    <link href="css/alert.mob.css" rel="stylesheet" />
+    <script src="js/Import/IMP_ForwardingBackwarding.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header" style="background-color:#065da1;">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" id="btnnavbar" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" id="navhdrName" style="text-align:right;"></a>
+                <img class="navbarImage" src="images/Logo.png" onclick="ShowHomePage();">
+                <a href="#" id="navhdr" class="loggedinUser"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top:63px;">
+        <div class="panel-body">
+            <div class="panel panel-widget forms-panel form-grids widget-shadow">
+                <div class="forms">
+                    <div class="form-body">
+                        <form>
+                            <div class="row form-group">
+                                <div class="form-group col-xs-12 col-sm-6 col-md-6 NoPadding">
+                                    <input type="radio" name="radSize" id="rdoForwarding" value="Forwarding" checked="checked" />
+                                    <label for="sizeLarge">Forward</label>
+                                    <input type="radio" name="radSize" id="rdoBackwarding" value="Backwarding" />
+                                    <label for="sizeSmall">Backward</label>
+                                </div>
+                            </div>                            
+
+                            <div class="row form-group" id="divForwarding">
+                                <div class="form-group col-xs-12 col-sm-6 col-md-6 NoPadding">
+                                    <div class="col-xs-6 col-form-label">
+                                        <label id="lblBCNo" for="txtBCNo">BC No</label>
+                                        <font color="red">*</font>
+                                    </div>
+                                    <div class="col-xs-6 NoPadding">
+                                        <input id="txtBCNo" class="form-control" type="text" maxlength="20" autofocus>
+                                    </div>
+                                </div>                               
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="form-group col-xs-4 col-sm-4 col-md-4 col-xs-offset-6 col-sm-offset-4  col-md-offset-4 NoPadding">
+                                    <input type="button" id="btnGetDetail" class="form-control ButtonColor" value="Get Details" onclick="GetMovementDetails();">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-widget forms-panel form-grids widget-shadow" style="margin-top:5%">
+                <div class="forms">
+                    <div class="form-body">
+                        <form>
+                            <div class="row">
+
+                                <div class="form-group col-xs-12 col-sm-6 col-md-6 NoPadding">
+                                    <div class="col-xs-6 col-form-label">
+                                        <label id="lblMawbNo" for="txtMawbNo" class="control-label">MAWB No.</label>                                        
+                                    </div>
+                                    <div class="col-xs-6 NoPadding">
+                                        <input type="number" id="txtMawbNo" class="form-control" maxlength="11" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-6 col-md-6 NoPadding">
+                                    <div class="col-xs-6 col-form-label">
+                                        <label id="lblHawbNo" for="txtHawbNo" class="control-label">HAWB No.</label>                                        
+                                    </div>
+                                    <div class="col-xs-6 NoPadding">
+                                        <input type="text" id="txtHawbNo" class="form-control" disabled>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group col-xs-12 col-sm-6 col-md-6 NoPadding">
+                                    <div class="col-xs-6 col-form-label">
+                                        <label for="txtFromLocation">Origin/Dest.</label>
+                                    </div>
+                                    <div class="col-xs-3 NoPadding">
+                                        <input id="txtOrigin" class="form-control" type="text" maxlength="20" disabled>
+                                    </div>
+                                    <div class="col-xs-3 NoPadding">
+                                        <input id="txtDestination" class="form-control" type="text" maxlength="20" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-xs-12 col-sm-6 col-md-6 NoPadding">
+                                    <div class="col-xs-6 col-form-label">
+                                        <label id="lblFromLoc" for="txtFromLoc" class="control-label">From Location</label>
+                                        <font color="red">*</font>
+                                    </div>
+                                    <div class="col-xs-6 NoPadding">
+                                        <input type="text" id="txtFromLoc" class="form-control" maxlength="20" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-6 col-md-6 NoPadding">
+                                    <div class="col-xs-6 col-form-label">
+                                        <label id="lblTotPkgs" for="txtTotPkgs" class="control-label">Total Packages</label>
+                                        <font color="red">*</font>
+                                    </div>
+                                    <div class="col-xs-6 NoPadding">
+                                        <input type="number" style="text-align:right;" id="txtTotPkgs" class="form-control" onkeyup="ChkMaxLength(this, '4');" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-xs-12 col-sm-6 col-md-6 NoPadding">
+                                    <div class="col-xs-6 col-form-label">
+                                        <label id="lblMovePkgs" for="txtMovePkgs" class="control-label">Move Packages</label>
+                                        <font color="red">*</font>
+                                    </div>
+                                    <div class="col-xs-6 NoPadding">
+                                        <input type="number" style="text-align:right;" id="txtMovePkgs" class="form-control" onkeyup="ChkMaxLength(this, '4');">
+                                    </div>
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-6 col-md-6 NoPadding">
+                                    <div class="col-xs-6 col-form-label">
+                                        <label id="lblNewLoc" for="txtNewLoc" class="control-label">New Location</label>
+                                        <font color="red">*</font>
+                                    </div>
+                                    <div class="col-xs-6 NoPadding">
+                                        <input type="text" id="txtNewLoc" class="form-control" maxlength="20">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group" style="margin-top:5px;">
+                                <div class="form-group col-xs-4 col-sm-4 col-md-4 NoPadding">
+                                    <input type="button" id="btnSubmit" class="form-control ButtonColor" value="Submit" onclick="SaveMovementDetails()">
+                                </div>
+                                <div class="form-group col-xs-4 col-sm-4 col-md-4">
+                                    <input type="button" id="btnClear" class="form-control ButtonColor" value="Clear" onclick="clearALL()">
+                                </div>
+                                <div class="form-group col-xs-4 col-sm-4 col-md-4">
+                                    <input type="button" id="btnExit" class="form-control ButtonColor" value="Exit" onclick="window.location.href = 'IMP_Dashboard.html'">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="divAddTestLocation">
+
+            </div>
+        </div>
+    </div>
+    <div>
+        <footer class="footer" style="color: white; font-size :12px; background-color:#0967b0;">
+            <div class="container">
+                <center><p class="text-muted" id="RightsReserved"></p></center>
+            </div>
+        </footer>
+    </div>
+</body>
+<script language="javascript" type="text/javascript">
+    $('#RightsReserved').text(' \xA9 Kale Logistics Solutions Private Limited. ' + (new Date).getFullYear().toString());
+</script>
+</html>

@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=0">
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/jquery-1.12.0.min.js"></script>
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/sticky-footer.css" rel="stylesheet" />
+    <script src="scripts/LoadingModel.js"></script>
+    <script src="scripts/LoaderShow-Hide.js"></script>
+    <script src="scripts/Login.js"></script>
+    <script src="scripts/dialog.js"></script>
+    <script src="js/General.js"></script>
+    <link href="css/General.css" rel="stylesheet" />
+    <script src="scripts/alert.mob.js"></script>
+    <link href="css/Loader.css" rel="stylesheet" />
+    <link href="css/dialog.css" rel="stylesheet" />
+    <link href="css/alert.mob.css" rel="stylesheet" />
+    <script src="js/Import/IMP_Segregation.js"></script>    
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header" style="background-color:#065da1;">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" id="btnnavbar" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" id="navhdrName" style="text-align:right;"></a>
+                <img class="navbarImage" src="images/Logo.png" onclick="ShowHomePage();">
+                <a href="#" id="navhdr" class="loggedinUser"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+
+            </div>
+        </div>         
+    </nav>
+    <div class="container-fluid" style="margin-top:63px;">
+        <div class="panel-body">
+            <div class="panel panel-widget forms-panel form-grids widget-shadow">
+                <div class="forms">
+                    <div class="form-body">
+                        <form>
+                            <div class="row" style="margin-bottom: 0px;">
+                                <div class="form-group col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
+                                    <label id="lblIGMYear" for="txtIGMYear">IGM Year</label>
+                                    <font color="red">*</font>
+                                    <input id="txtIGMYear" class="form-control" type="number" style="text-align:right;" disabled>
+                                </div>
+                                <div class="form-group col-xs-6 col-sm-6 col-md-6" style="padding-right:0px;">
+                                    <label id="lblIGMNo" for="txtIGMNo">IGM No</label>
+                                    <font color="red">*</font>
+                                    <input id="txtIGMNo" class="form-control" type="number" style="text-align:right;" autofocus onkeyup="ChkMaxLength(this, '7'); NumberOnly(event);">
+                                </div>
+                            </div>   
+                            <div class="row" style="margin-bottom: 0px;">
+                                <div class="form-group col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
+                                    <label id="lblAWBNo" for="txtAWBNo">AWB No</label>
+                                    <input id="txtAWBNo" class="form-control" type="number" style="text-align:right;" onkeyup="ChkMaxLength(this, '11');" onblur="GetHAWBDetailsForMAWB();">
+                                </div>
+                                <div class="form-group col-xs-6 col-sm-6 col-md-6" style="padding-right:0px;">
+                                    <label id="lblHAWB" for="txtHAWB">HAWB No</label>
+                                    <select class="form-control" id="ddlHAWB">
+                                        <option value="0">Select</option>
+                                    </select>
+                                </div>
+                            </div>                          
+                            <div class="row" style="margin-top:5px;">
+                                <div class="form-group col-xs-6 col-sm-4 col-md-4">
+                                    <input type="button" id="btnClear" class="form-control ButtonColor" value="Clear" onclick="clearALL();">
+                                </div>                                
+                                <div class="form-group col-xs-6 col-sm-4 col-md-4">
+                                    <input type="button" id="btnGetDetails" value="Get Details" class="form-control ButtonColor" onclick="GetSegregationDetails();"/>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-widget forms-panel form-grids widget-shadow">
+                <div class="forms">
+                    <div class="form-body">
+                        <form>
+                            <div class="row" style="margin-bottom: 0px;">
+                                <div class="form-group col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
+                                    <label id="lblFlightNo" for="txtFlightNo" class="control-label">Flight No.</label>
+                                    <input id="txtFlightNo" class="form-control" type="text" disabled>
+                                </div>
+                                <div class="form-group col-xs-6 col-sm-6 col-md-6" style="padding-right:0px;">
+                                    <label id="lblFlightDt" for="txtFlightDt" class="control-label">Flight Date</label>
+                                    <input id="txtFlightDt" class="form-control" type="text" disabled>
+                                </div>                                
+                            </div>
+                            <div class="row" style="margin-bottom: 0px;">
+                                <div class="form-group col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
+                                    <label id="lbltotConsignmt" for="txttotConsignmt" class="control-label">Total Consignment</label>
+                                    <input id="txttotConsignmt" class="form-control" type="number" style="text-align:right;" disabled>
+                                </div>
+                                <div class="form-group col-xs-6 col-sm-6 col-md-6" style="padding-right:0px;">
+                                    <label id="lbltotManifstpkg" for="txttotManifstpkg" class="control-label">Manifested Pkgs</label>
+                                    <input id="txttotManifstpkg" class="form-control" type="number" style="text-align:right;" disabled>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-bottom: 0px;">
+                                <div class="form-group col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
+                                    <label id="lbltotArrivedPkg" for="txttotArrivedPkg" class="control-label">Total Arrived Pkgs</label>
+                                    <input id="txttotArrivedPkg" class="form-control" type="number" style="text-align:right;" disabled>
+                                </div>
+                                <div class="form-group col-xs-6 col-sm-6 col-md-6" style="padding-right:0px;">
+                                    <label id="lbltotShortpkg" for="txttotShortpkg" class="control-label">Total Short Pkgs</label>
+                                    <input id="txttotShortpkg" class="form-control" type="number" style="text-align:right;" disabled>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-bottom: 0px;">
+                                <div class="form-group col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
+                                    <label id="lbltotExcessPkg" for="txttotExcessPkg" class="control-label">Total Excess Pkgs</label>
+                                    <input id="txttotExcessPkg" class="form-control" type="number" style="text-align:right;" disabled>
+                                </div>
+                                <div class="form-group col-xs-6 col-sm-6 col-md-6" style="padding-right:0px;">
+                                    <label id="lbltotTPConsignmt" for="txttotTPConsignmt" class="control-label">TP Consignments</label>
+                                    <input id="txttotTPConsignmt" class="form-control" type="number" style="text-align:right;" disabled>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-bottom: 0px;">
+                                <div class="form-group col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
+                                    <label id="lbltotDamagedPkg" for="txttotDamagedPkg" class="control-label">Total Damaged Pkgs</label>
+                                    <input id="txttotDamagedPkg" class="form-control" type="number" style="text-align:right;" disabled>
+                                </div> 
+                                <div class="form-group col-xs-6 col-sm-6 col-md-6" style="padding-right:0px;">
+                                    <label id="lblSegregationSts" for="txtSegregationSts" class="control-label">Segregation Status</label>
+                                    <input id="txtSegregationSts" class="form-control" type="text" disabled>
+                                </div>                                
+                            </div>
+                            <div class="row" style="margin-top:5px;">                                
+                                <div class="form-group col-xs-6 col-sm-4 col-md-4">
+                                    <input type="button" id="btnSubmit" value="Submit" class="form-control ButtonColor" onclick="SaveSegregationDetails();"/>
+                                </div>
+                                <div class="form-group col-xs-6 col-sm-4 col-md-4">
+                                    <input type="button" id="btnExit" value="Exit" class="form-control ButtonColor" onclick="window.location.href = 'IMP_Dashboard.html'" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <footer class="footer" style="color: white; font-size :12px; background-color:#0967b0;">
+            <div class="container">
+                <center><p class="text-muted" id="RightsReserved"></p></center>
+            </div>
+        </footer>
+    </div>
+</body>
+<script language="javascript" type="text/javascript">
+    $('#RightsReserved').text(' \xA9 Kale Logistics Solutions Private Limited. ' + (new Date).getFullYear().toString());
+</script>
+</html>

@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=0">
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/jquery-1.12.0.min.js"></script>
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/sticky-footer.css" rel="stylesheet" />
+    <script src="scripts/LoadingModel.js"></script>
+    <script src="scripts/LoaderShow-Hide.js"></script>
+    <script src="scripts/Login.js"></script>
+    <script src="scripts/dialog.js"></script>
+    <script src="js/General.js"></script>
+    <link href="css/General.css" rel="stylesheet" />
+    <script src="scripts/alert.mob.js"></script>
+    <link href="css/Loader.css" rel="stylesheet" />
+    <link href="css/dialog.css" rel="stylesheet" />
+    <link href="css/alert.mob.css" rel="stylesheet" />
+    <script src="js/amplify.min.js"></script>
+    <script src="js/Import/IMP_WDOoperations.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header" style="background-color:#065da1;">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" id="btnnavbar" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" id="navhdrName" style="text-align:right;"></a>
+                <img class="navbarImage" src="images/Logo.png" onclick="ShowHomePage();">
+                <a href="#" id="navhdr" class="loggedinUser"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top:63px;">
+        <div class="panel-body">
+            <div class="panel panel-widget forms-panel form-grids widget-shadow">
+                <div class="forms">
+                    <div class="form-body">
+                        <form>
+                            <div class="row">
+                                <div class="form-group col-xs-12 col-sm-6 col-md-6 NoPadding">
+                                    <div class="col-xs-6 col-form-label">
+                                        <label for="txtRotationNo">Rotation No.</label>
+                                        <font color="red">*</font>
+                                    </div>
+                                    <div class="col-xs-6 NoPadding">
+                                        <input id="txtRotationNo" class="form-control" type="text" maxlength="20" onblur="GetWDOdetails()">
+                                    </div>
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-6 col-md-6 NoPadding">
+                                    <div class="col-xs-6 col-form-label">
+                                        <label id="lblWDO" for="ddlWDO" class="control-label labelFont">WDO No.</label>
+                                    </div>
+                                    <div class="col-xs-6 NoPadding">
+                                        <input id="txtWDONo" class="form-control" type="text" maxlength="20">
+                                    </div>
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-6 col-md-6 NoPadding">
+                                    <div class="col-xs-6 col-form-label">
+                                        <label id="lblAWB" for="ddlAWB" class="control-label labelFont">AWB No.</label>
+                                    </div>
+                                    <div class="col-xs-6 NoPadding">
+                                        <input id="txtAWBNo" class="form-control" type="number" style="text-align:right;" onkeyup="ChkMaxLength(this, '11');">
+                                    </div>
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-6 col-md-6 NoPadding">
+                                    <div class="col-xs-6 col-form-label">
+                                        <label id="lblHAWB" for="ddlHAWB" class="control-label labelFont">HAWB No.</label>
+                                    </div>
+                                    <div class="col-xs-6 NoPadding">
+                                        <input id="txtHAWBNo" class="form-control" type="text" maxlength="20">
+                                    </div>
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-6 col-md-6 NoPadding">
+                                    <div class="col-xs-6 col-form-label">
+                                        <label for="txtLocationCode">Location Code</label>
+                                        <font color="red">*</font>
+                                    </div>
+                                    <div class="col-xs-6 NoPadding">
+                                        <input id="txtLocation" class="form-control" type="text" maxlength="20">
+                                    </div>
+                                </div>                                
+                            </div>
+                            <div class="row">    
+                                <div class="form-group col-xs-12 col-sm-6 col-md-6 NoPadding">
+                                    <!--<div class="col-xs-4 col-form-label">
+                                        <label class="checkbox-inline"><input type="checkbox" id="chkOOW">OOW</label>
+                                        <input type="radio" name="rdoOOW" id="rdoOOW" value="OOW" checked="checked" />
+                                        <label for="sizeSmall">small</label>
+                                    </div>
+                                    <div class="col-xs-4 col-form-label">
+                                        <label class="checkbox-inline"><input type="checkbox" id="chkCR">CR</label>
+                                        <input type="radio" name="rdoCR" id="rdoCR" value="CR" />
+                                        <label for="sizeMed">medium</label>
+                                    </div>
+                                    <div class="col-xs-4 col-form-label">
+                                        <label class="checkbox-inline"><input type="checkbox" id="chkDeliver">Deliver</label>
+                                        <input type="radio" name="rdoDeliver" id="rdoDeliver" value="Deliver" />
+                                        <label for="sizeLarge">large</label>
+                                    </div>-->
+                                    <input type="radio" name="radSize" id="rdoDeliver" value="Deliver" checked="checked" />
+                                    <label for="sizeLarge">Deliver</label>
+                                    <input type="radio" name="radSize" id="rdoOOW" value="OOW"/>
+                                    <label for="sizeSmall">OOW</label>
+                                    <input type="radio" name="radSize" id="rdoCR" value="CR" />
+                                    <label for="sizeMed">CR</label>                                    
+                                </div>                                
+                            </div>
+                            
+
+                            <div class="row form-group" style="margin-top:10px;">
+                                <div class="form-group col-xs-6 col-sm-4 col-md-4">
+                                    <input type="button" id="btnExcLanded" class="form-control ButtonColor" value="Exit" onclick="window.location.href = 'IMP_Dashboard.html'">
+                                </div>
+                                <div class="form-group col-xs-6 col-sm-4 col-md-4">
+                                    <input type="button" id="btnModify" class="form-control ButtonColor" value="Submit" onclick="SaveDetails();">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <footer class="footer" style="color: white; font-size :12px; background-color:#0967b0;">
+            <div class="container">
+                <center><p class="text-muted" id="RightsReserved"></p></center>
+            </div>
+        </footer>
+    </div>
+</body>
+<script language="javascript" type="text/javascript">
+    $('#RightsReserved').text(' \xA9 Kale Logistics Solutions Private Limited. ' + (new Date).getFullYear().toString());
+</script>
+</html>

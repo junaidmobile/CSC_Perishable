@@ -1,0 +1,265 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=0">
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/jquery-1.12.0.min.js"></script>
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/sticky-footer.css" rel="stylesheet" />
+    <script src="scripts/LoadingModel.js"></script>
+    <script src="scripts/LoaderShow-Hide.js"></script>
+    <script src="scripts/Login.js"></script>
+    <script src="scripts/dialog.js"></script>
+    <script src="js/General.js"></script>    
+    <link href="css/General.css" rel="stylesheet" />
+    <script src="scripts/alert.mob.js"></script>
+    <link href="css/Loader.css" rel="stylesheet" />
+    <link href="css/dialog.css" rel="stylesheet" />
+    <link href="css/alert.mob.css" rel="stylesheet" />
+    <script src="js/Export/EXP_AirsideRelease.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="navbar">    
+        <div class="container-fluid">
+            <div class="navbar-header" style="background-color:#065da1;">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" id="btnnavbar" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" id="navhdrName" style="text-align:right;"></a>
+                <img class="navbarImage" src="images/Logo.png" onclick="ShowHomePage();">
+                <a href="#" id="navhdr" class="loggedinUser"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+
+            </div>
+        </div>     
+    </nav>
+    <div class="container-fluid" style="margin-top:63px;">
+        <div class="panel-body">
+            <div class="panel panel-widget forms-panel form-grids widget-shadow">
+                <div class="forms">
+                    <div class="form-body">
+                        <form>
+                            <div class="row form-group">
+                                <div class="form-group col-xs-12 col-sm-6 col-md-6 NoPadding">
+                                    <div class="col-xs-6 col-form-label">
+                                        <label for="txtGPNo">GP No.</label>
+                                    </div>
+                                    <div class="col-xs-6 NoPadding">
+                                        <input id="txtGPNo1" class="form-control" type="text" maxlength="13" autofocus>
+                                    </div>
+                                    <!--<div class="col-xs-2 NoPadding">
+                                        <input id="txtGPNo2" class="form-control" type="number" style="text-align:right;" onkeyup="ChkMaxLength(this, '4');">
+                                    </div>-->
+                                </div>                                
+                            </div>
+                            <div class="row form-group" style="margin-top:5px;">
+                                <div class="col-xs-6 col-form-label">                                    
+                                        <label class="checkbox-inline"><input type="checkbox" id="chkManual" onchange="PutGPno()">Manual</label>                                    
+                                </div>
+                                <div class="form-group col-xs-4 col-sm-4 col-md-4 NoPadding">
+                                    <input type="button" id="btnGet" class="form-control ButtonColor" value="Get Status" onclick="GetGPStatus();">
+                                </div>
+                                <div class="form-group col-xs-2 col-sm-4 col-md-4">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <label id="lblReleasedULDDtl" class="control-label labelFont">Released ULD Details</label>
+            </div>
+            <div class="panel panel-widget forms-panel form-grids widget-shadow">
+                <div class="forms">
+                    <div class="form-body">
+                        <form>
+                            <div class="row form-group">
+                                <div class="form-group col-xs-12 col-sm-6 col-md-6 NoPadding">
+                                    <div class="col-xs-6 col-form-label">
+                                        <label for="txtReleasedULD">Released/Pending ULD</label>
+                                    </div>
+                                    <div class="col-xs-3 NoPadding">
+                                        <input id="txtReleasedULD" class="form-control" type="number" style="text-align:right;" onkeyup="ChkMaxLength(this, '4');" disabled>
+                                    </div>
+                                    <div class="col-xs-3 NoPadding">
+                                        <input id="txtPendingULD" class="form-control" type="number" style="text-align:right;" onkeyup="ChkMaxLength(this, '4');" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-6 col-md-6 NoPadding">
+                                    <div class="col-xs-6 col-form-label">
+                                        <label for="txtReleasedAWB">Released/Pending Bulk</label>
+                                    </div>
+                                    <div class="col-xs-3 NoPadding">
+                                        <input id="txtReleasedAWB" class="form-control" type="number" style="text-align:right;" onkeyup="ChkMaxLength(this, '4');" disabled>
+                                    </div>
+                                    <div class="col-xs-3 NoPadding">
+                                        <input id="txtPendingAWB" class="form-control" type="number" style="text-align:right;" onkeyup="ChkMaxLength(this, '4');" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<div class="row form-group">
+                                
+                            </div>-->                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div id ="divReleaseULD" class="panel panel-widget forms-panel form-grids widget-shadow" style="display:none">
+                <div class="forms">
+                    <div class="form-body">
+                        <form>                            
+                            <div class="row form-group">
+                                <div class="form-group col-xs-12 col-sm-6 col-md-6 NoPadding">
+                                    <div class="col-xs-6 col-form-label">
+                                        <label id="lblReleaseULD">Release ULD</label>
+                                    </div>
+                                    <div class="col-xs-6 NoPadding">
+                                    </div>
+                                </div>                                
+                                <div class="form-group col-xs-12 col-sm-6 col-md-6 NoPadding">
+                                    <div class="col-xs-6 col-form-label">
+                                        <label id="lblULD">ULD No.</label>
+                                    </div>
+                                    <div class="col-xs-6 NoPadding">
+                                        <select class="form-control" id="ddlULD" onchange="ChangeULDBulkToRelease($('#ddlULD').find('option:selected').val(),'U')">
+                                            <option value="0">Select</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row form-group" style="margin-top:5px;">
+                                    <div class="form-group col-xs-6 col-sm-4 col-md-4">
+                                    </div>
+                                    <div class="form-group col-xs-4 col-sm-4 col-md-4 NoPadding">
+                                        <input type="button" id="btnRelease" class="form-control ButtonColor" value="Release" onclick="ReleaseULDBulk('U');">
+                                    </div>
+                                    <div class="form-group col-xs-2 col-sm-4 col-md-4">
+                                    </div>
+                                </div>
+                            </div>                      
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div id="divReleaseBulk" class="panel panel-widget forms-panel form-grids widget-shadow" style="display:none">
+                <div class="forms">
+                    <div class="form-body">
+                        <form>
+                            <!--<div class="row form-group">
+                                <div class="form-group col-xs-12 col-sm-6 col-md-6 NoPadding">
+                                    <div class="col-xs-6 col-form-label">
+                                        <label id="lblReleaseULD">Release BULK</label>
+                                    </div>
+                                    <div class="col-xs-6 NoPadding">
+                                    </div>
+                                </div>                                
+                                <div class="form-group col-xs-12 col-sm-6 col-md-6 NoPadding">
+                                    <div class="col-xs-6 col-form-label">
+                                        <label id="lblAWB">AWB No.</label>
+                                    </div>
+                                    <div class="col-xs-6 NoPadding">
+                                        <select class="form-control" id="ddlAWB" onchange="ShowTotalPkgsForAWB($('#ddlAWB').find('option:selected').val());">
+                                            <option value="0">Select</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-6 col-md-6 NoPadding">
+                                    <div class="col-xs-6 col-form-label">
+                                        <label id="lblTotPkgs" for="txtTotPkgs">Total Pkgs.</label>                                        
+                                    </div>
+                                    <div class="col-xs-6 NoPadding">
+                                        <input id="txtTotPkgs" class="form-control" type="number" style="text-align:right;" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-6 col-md-6 NoPadding">
+                                    <div class="col-xs-6 col-form-label">
+                                        <label id="lblReleasePkgs" for="txtReleasePkgs">Release Pkgs.</label>                                        
+                                    </div>
+                                    <div class="col-xs-6 NoPadding">
+                                        <input id="txtReleasePkgs" class="form-control" type="number" style="text-align:right;" autofocus onkeyup="ChkMaxLength(this, '7');">
+                                    </div>
+                                </div>
+                                <div class="row form-group" style="margin-top:5px;">
+                                    <div class="form-group col-xs-6 col-sm-4 col-md-4">
+                                    </div>
+                                    <div class="form-group col-xs-4 col-sm-4 col-md-4 NoPadding">
+                                        <input type="button" id="btnRelease" class="form-control ButtonColor" value="Release" onclick="ReleaseBulkAWB();">
+                                    </div>
+                                    <div class="form-group col-xs-2 col-sm-4 col-md-4">
+                                    </div>
+                                </div>
+                            </div>-->
+                            <div class="row form-group">
+                                <div class="form-group col-xs-12 col-sm-6 col-md-6 NoPadding">
+                                    <div class="col-xs-6 col-form-label">
+                                        <label id="lblReleaseBulk">Release BULK</label>
+                                    </div>
+                                    <div class="col-xs-6 NoPadding">
+                                    </div>
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-6 col-md-6 NoPadding">
+                                    <div class="col-xs-6 col-form-label">
+                                        <label id="lblBulk">Bulk</label>
+                                    </div>
+                                    <div class="col-xs-6 NoPadding">
+                                        <select class="form-control" id="ddlBulk" onchange="ChangeULDBulkToRelease($('#ddlBulk').find('option:selected').val(), 'T')">
+                                            <option value="0">Select</option>
+                                        </select>
+                                    </div>
+                                </div>                                
+                                <div class="row form-group" style="margin-top:5px;">
+                                    <div class="form-group col-xs-6 col-sm-4 col-md-4">
+                                    </div>
+                                    <div class="form-group col-xs-4 col-sm-4 col-md-4 NoPadding">
+                                        <input type="button" id="btnRelease" class="form-control ButtonColor" value="Release" onclick="ReleaseULDBulk('T');">
+                                    </div>
+                                    <div class="form-group col-xs-2 col-sm-4 col-md-4">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row form-group" style="margin-top:5px;">
+                <div class="form-group col-xs-6 col-sm-3 col-md-3">
+                    <input type="button" id="btnReleaseULD" class="form-control ButtonColor" value="Release ULD" onclick="ShowReleaseULDGrid();">
+                </div>
+                <div class="form-group col-xs-6 col-sm-3 col-md-3">
+                    <input type="button" id="btnReleaseBulk" class="form-control ButtonColor" value="Release Bulk" onclick="ShowReleaseBulkGrid();">
+                </div>
+                <div class="form-group col-xs-6 col-sm-3 col-md-3">
+                    <input type="button" id="btnClear" class="form-control ButtonColor" value="Clear" onclick="clearAll();">
+                </div>
+                <div class="form-group col-xs-6 col-sm-3 col-md-3">
+                    <input type="button" id="btnBack" class="form-control ButtonColor" value="Exit" onclick="window.location.href = 'EXP_Dashboard.html'">
+                </div>
+            </div>            
+        </div>
+
+        <div id="divAddTestLocation">
+
+        </div>
+
+    </div>
+    <div>
+        <footer class="footer" style="color: white; font-size :12px; background-color:#0967b0;">
+            <div class="container">
+                <center><p class="text-muted" id="RightsReserved"></p></center>
+            </div>
+        </footer>
+    </div>
+</body>
+<script language="javascript" type="text/javascript">
+    $('#RightsReserved').text(' \xA9 Kale Logistics Solutions Private Limited. ' + (new Date).getFullYear().toString());
+</script>
+</html>

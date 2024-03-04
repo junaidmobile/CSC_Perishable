@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=0">
+    <title>GalaxyMobileApplication</title>
+    <style>
+        #APPHeader, #APPFooter {
+            background-color: #065da1;
+        }
+    </style>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/jquery-1.12.0.min.js"></script>
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/custom.css" rel="stylesheet" />
+    <link href="css/sticky-footer.css" rel="stylesheet" />
+    <script src="scripts/LoadingModel.js"></script>
+    <script src="scripts/LoaderShow-Hide.js"></script>
+    <script src="scripts/dialog.js"></script>
+    <script src="scripts/alert.mob.js"></script>
+    <script src="js/General.js"></script>
+    <link href="css/General.css" rel="stylesheet" />
+    <link href="css/Loader.css" rel="stylesheet" />
+    <link href="css/dialog.css" rel="stylesheet" />
+    <link href="css/alert.mob.css" rel="stylesheet" />
+    <script src="js/Import/IMP_Dashboard.js"></script>
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .dividediv {
+            width: 49%;
+            height: 12%;
+            border: 1px solid #000;
+            margin-bottom: 2%;
+            background: #fbf7f7;
+            vertical-align: middle;
+            text-align: center;
+            border-radius:10px;
+            box-shadow: 5px 5px 2px #888888;            
+        }
+
+        .Centerlbl {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            vertical-align: middle;
+            text-align: center;            
+        }
+
+        .Centerlbl2Line {
+            position: relative;
+            top: 20%;
+            /*transform: translateY(-50%);*/
+            vertical-align: middle;
+            text-align: center;
+        }
+                
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header" style="background-color:#065da1;">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" id="btnnavbar" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" id="navhdrName" style="text-align:right;"></a>
+                <img class="navbarImage" src="images/Logo.png" onclick="ShowHomePage();">
+                <a href="#" id="navhdr" class="loggedinUser"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+
+            </div>
+        </div>         
+    </nav>
+    <!--<div class="container-fluid" style="margin-top:63px;">
+        <div class="panel-body" style="margin-top:5%;">
+            <div id="divDashBoardImport" class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
+                <div class="row form-group">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <img src="images/Flight Arrival.png" style="width:100%;" />
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <img src="images/Add ULD to flight.png" style="width:100%;" />
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <img src="images/Create AWB.png" style="width:100%;" onclick="onCreateAWB();" />
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <img src="images/Create HAWB.png" style="width:100%;" onclick="onSearchAWB();" />
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <img src="images/Shipment Arrival.png" style="width:100%;"  onclick="onIMPShipmentLoc();" />
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <img src="images/Record Damage.png" style="width:100%;" />
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <img src="images/Record Doc.png" style="width:100%;" />
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <img src="images/Record Cargo.png" style="width:100%;" />
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <img src="images/Flight Check-In.png" style="width:100%;" onclick="onFlightCheck();" />
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <img src="images/Flight Arrival.png" style="width:100%;" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <div class="container-fluid" style="width: 100%;height: 100%;margin-top:63px;">
+        <div class="dividediv" style="float:left;" onclick="RedirectPage('IMP_FlightCheck.html');">
+            <center class="Centerlbl">
+                <label class="control-label labelFont" style="color:#337ab7;font-size:15px">Flight Check</label>
+            </center>
+        </div>
+        <!--<div class="dividediv" style="float:right;" onclick="RedirectPage('IMP_CheckAWB.html');">
+            <center class="Centerlbl">
+                <label class="control-label labelFont" style="color:#337ab7;font-size:15px">Check AWB</label>
+            </center>
+        </div>-->
+        <div class="dividediv" style="float:right;" onclick="RedirectPage('IMP_Segregation.html');">
+            <center class="Centerlbl">
+                <label class="control-label labelFont" style="color:#337ab7;font-size:15px">Segregation</label>
+            </center>
+        </div>
+        <div class="dividediv" style="float:left;" onclick="RedirectPage('IMP_Binning.html');">
+            <center class="Centerlbl">
+                <label class="control-label labelFont" style="color:#337ab7;font-size:15px">Binning</label>
+            </center>
+        </div>
+        <div class="dividediv" style="float:right;" onclick="RedirectPage('IMP_InternalMovement.html');">
+            <center class="Centerlbl">
+                <label class="control-label labelFont" style="color:#337ab7;font-size:15px">Internal Movement</label>
+            </center>
+        </div>
+        <div class="dividediv" style="float:left;" onclick="RedirectPage('IMP_ForwardingBackwarding.html');">
+            <center class="Centerlbl">
+                <label class="control-label labelFont" style="color:#337ab7;font-size:15px">Forward & Backward</label>
+            </center>
+        </div>
+        <!--<div class="dividediv" style="float:left;" onclick="RedirectPage('IMP_ShipmentForwarding.html');">
+            <center class="Centerlbl2Line">
+                <label class="control-label labelFont" style="color:#337ab7;font-size:15px">Shipment Sent For Custom Exam</label>
+            </center>
+        </div>
+        <div class="dividediv" style="float:right;" onclick="RedirectPage('IMP_ShipmentBackwarding.html');">
+            <center class="Centerlbl2Line">
+                <label class="control-label labelFont" style="color:#337ab7;font-size:15px">Shipment Back From Custom Exam</label>
+            </center>
+        </div>-->
+        <div class="dividediv" style="float:right;" onclick="RedirectPage('IMP_FinalDelivery.html');">
+            <center class="Centerlbl">
+                <label class="control-label labelFont" style="color:#337ab7;font-size:15px">Final Delivery</label>
+            </center>
+        </div>
+        <div class="dividediv" style="float:left;" onclick="RedirectPage('IMP_ShipmentStatus.html');">
+            <center class="Centerlbl">
+                <label class="control-label labelFont" style="color:#337ab7;font-size:15px">Import Query</label>
+            </center>
+        </div>
+        <!--<div class="dividediv" style="float:right;" onclick="RedirectPage('IMP_VCTCheck.html');">
+            <center class="Centerlbl">
+                <label class="control-label labelFont" style="color:#337ab7;">VCT Check</label>
+            </center>
+        </div>-->
+        <div class="dividediv" style="float:right;" onclick="RedirectPage('IMP_DocumentUpload.html');">
+            <center class="Centerlbl">
+                <label class="control-label labelFont" style="color:#337ab7;font-size:15px">Document Upload</label>
+            </center>
+        </div>
+        <!--<div class="dividediv" style="float:right;" onclick="RedirectPage('IMP_ScanningLocationMain.html');">
+            <center class="Centerlbl">
+                <label class="control-label labelFont" style="color:#337ab7;">Scanning Location</label>
+            </center>
+        </div>-->
+        <!--<div class="dividediv" style="float:right;" onclick="RedirectPage('IMP_WDOoperations.html');">
+            <center class="Centerlbl">
+                <label class="control-label labelFont" style="color:#337ab7;">WDO Operations</label>
+            </center>
+        </div>
+        <div class="dividediv" style="float:left;" onclick="RedirectPage('IMP_RecordDamage.html');">
+            <center class="Centerlbl">
+                <label class="control-label labelFont" style="color:#337ab7;">Record Damage</label>
+            </center>
+        </div>
+        <div class="dividediv" style="float:right;" onclick="RedirectPage('IMP_RecordDiscrepancy.html');">
+            <center class="Centerlbl">
+                <label class="control-label labelFont" style="color:#337ab7;">Record Discrepancy</label>
+            </center>
+        </div>
+        <div class="dividediv" style="float:left;" onclick="RedirectPage('IMP_ShipmentArrival.html');">
+            <center class="Centerlbl">
+                <label class="control-label labelFont" style="color:#337ab7;">Shipment Arrival</label>
+            </center>
+        </div>
+        <div class="dividediv" style="float:right;" onclick="RedirectPage('IMP_CreateAWB.html');">
+            <center class="Centerlbl">
+                <label class="control-label labelFont" style="color:#337ab7;">Create AWB</label>
+            </center>
+        </div>
+        <div class="dividediv" style="float:left;" onclick="RedirectPage('IMP_AWBLocation.html');">
+            <center class="Centerlbl">
+                <label class="control-label labelFont" style="color:#337ab7;">AWB Location</label>
+            </center>
+        </div>-->
+    </div>
+    <div>
+        <footer class="footer" style="color: white; font-size :12px; background-color:#0967b0;">
+            <div class="container">
+                <center><p class="text-muted" id="RightsReserved"></p></center>
+            </div>
+        </footer>
+    </div>
+</body>
+<script language="javascript" type="text/javascript">
+    $('#RightsReserved').text(' \xA9 Kale Logistics Solutions Private Limited. ' + (new Date).getFullYear().toString());
+</script>
+</html>

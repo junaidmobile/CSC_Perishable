@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=0">
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/jquery-1.12.0.min.js"></script>
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <link href="css/style.css" rel="stylesheet" />
+    <!--<script src="scripts/custom.js"></script>
+    <link href="css/custom.css" rel="stylesheet" />-->
+    <link href="css/sticky-footer.css" rel="stylesheet" />
+    <!--<script src="scripts/Jquery-Mobile-1.4.5.js"></script>-->
+    <script src="scripts/LoadingModel.js"></script>
+    <script src="scripts/LoaderShow-Hide.js"></script>
+    <script src="scripts/Login.js"></script>
+    <script src="scripts/dialog.js"></script>
+    <script src="js/General.js"></script>
+    <link href="css/General.css" rel="stylesheet" />
+    <script src="scripts/alert.mob.js"></script>
+    <!--<link href="css/JqueryMobile_1.4.5.css" rel="stylesheet" />-->
+    <link href="css/Loader.css" rel="stylesheet" />
+    <link href="css/dialog.css" rel="stylesheet" />
+    <link href="css/alert.mob.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header" style="background-color:#065da1;">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" id="btnnavbar" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" id="navhdrName" style="text-align:right;"></a>
+                <img class="navbarImage" src="images/Logo.png" onclick="ShowHomePage();">
+                <a href="#" id="navhdr" class="loggedinUser"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+
+            </div>
+        </div>         
+    </nav>
+    <div class="container-fluid" style="margin-top:63px;">
+        <div class="panel-body">
+            <div class="panel panel-widget forms-panel form-grids widget-shadow">
+                <div class="forms">
+                    <div class="form-body">
+                        <form>
+                            <div class="row form-group">
+                                <div class="form-group col-xs-12 col-sm-6 col-md-6 NoPadding">
+                                    <div class="col-xs-4 col-form-label">
+                                        <label for="txtFlightNo">Flight No.</label>
+                                    </div>
+                                    <div class="col-xs-8 NoPadding">
+                                        <input id="txtFlightNo" class="form-control" type="text" autofocus>
+                                    </div>
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-6 col-md-6 NoPadding">
+                                    <div class="col-xs-4 col-form-label">
+                                        <label for="txtFlightDate">Flight Date</label>
+                                    </div>
+                                    <div class="col-xs-8 NoPadding">
+                                        <input id="txtFlightDate" class="form-control" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group" style="margin-top:10px;">
+                                <div class="form-group col-xs-4 col-sm-4 col-md-4">
+                                </div>
+                                <div class="form-group col-xs-4 col-sm-4 col-md-4 NoPadding">
+                                    <input type="button" id="btnGet" class="form-control ButtonColor" value="Get" onclick="">
+                                </div>
+                                <div class="form-group col-xs-4 col-sm-4 col-md-4">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-widget forms-panel form-grids widget-shadow" style="margin-top:5%">
+                <div class="forms">
+                    <div class="form-body">
+                        <form>
+                            <div class="row form-group">
+                                <div class="form-group col-xs-12 col-sm-6 col-md-6 NoPadding">
+                                    <div class="col-xs-4 col-form-label">
+                                        <label for="txtULDType">ULD Type</label>
+                                    </div>
+                                    <div class="col-xs-3 NoPadding">
+                                        <input id="txtULDType1" class="form-control" type="text">
+                                    </div>
+                                    <div class="col-xs-5 NoPadding">
+                                        <input id="txtULDType2" class="form-control" type="text">
+                                    </div>
+                                </div>
+                            </div>                            
+                            <div class="row form-group" style="margin-top:10px;">
+                                <div class="form-group col-xs-4 col-sm-4 col-md-4">
+                                    <input type="button" id="btnCancel" class="form-control ButtonColor" value="Cancel" onclick="">
+                                </div>
+                                <div class="form-group col-xs-4 col-sm-4 col-md-4">
+                                    <input type="button" id="btnChange" class="form-control ButtonColor" value="Change" onclick="">
+                                </div>
+                                <div class="form-group col-xs-4 col-sm-4 col-md-4">
+                                    <input type="button" id="btnRebuild" class="form-control ButtonColor" value="Rebuild" onclick="">
+                                </div>
+                            </div>
+                            <div class="row form-group">                                
+                                <div class="form-group col-xs-4 col-sm-4 col-md-4" >
+                                    <input type="button" id="btnClear" class="form-control ButtonColor" value="Clear" onclick="">
+                                </div>
+                                <div class="form-group col-xs-4 col-sm-4 col-md-4">
+                                    <input type="button" id="btnBack" class="form-control ButtonColor" value="Back" onclick="">
+                                </div>
+                            </div>                             
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <footer class="footer" style="color: white; font-size :12px; background-color:#0967b0;">
+            <div class="container">
+                <center><p class="text-muted" id="RightsReserved"></p></center>
+            </div>
+        </footer>
+    </div>
+</body>
+<script language="javascript" type="text/javascript">
+    $('#RightsReserved').text(' \xA9 Kale Logistics Solutions Private Limited. ' + (new Date).getFullYear().toString());
+</script>
+</html>

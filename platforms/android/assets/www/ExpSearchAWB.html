@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=0">
+    <title>GalaxyMobileApplication</title>
+    <style>
+        #APPHeader, #APPFooter {
+            background-color: #065da1;
+        }
+    </style>
+    
+</head>
+<body>
+    <div data-role="page">
+        <div id="APPHeader" data-role="header" data-position="fixed">
+            <div style="display:inline;width:8%;float:left;margin-left:5px;margin-top:5px">
+                <img src="images/Menudrawer.ico" style="width:32px;height:32px" />
+            </div>
+            <div style="display:inline">
+                <label style="color:white;font-size:20px;margin-left:50px;margin-top:10px">Search AWB</label>
+            </div>
+            <div style="width:100%">
+                <table style="width:100%;background-color:white">
+                    <tr>
+                        <td style="width:50%">
+                            &nbsp;
+                        </td>
+                        <td align="right" style="width:50%">
+                            <a href="#" style="width:40px;font-size:10px" class="ui-btn ui-btn-inline ui-mini Common-btn" id="btnExpAWbSearch" onclick="SearchAWB();">Search</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="APPContent" data-role="main" class="ui-content">
+            <div class="form-group">
+                <label style="font-family:Arial, Helvetica, sans-serif;padding-left:5px"> AWB No. </label>
+                <input type="text" class="form-control" id="txtAWBNo" onblur="ClearError(this.id);" />
+            </div>
+            <div class="form-group">
+                <label style="font-family:Arial, Helvetica, sans-serif;padding-left:5px"> Origin </label>
+                <input type="text" class="form-control" id="txtOrigin" />
+            </div>
+            <div class="form-group">
+                <label style="font-family:Arial, Helvetica, sans-serif;padding-left:5px"> Destination </label>
+                <input type="text" class="form-control" id="txtDestination" />
+            </div>
+            <div class="form-group">
+                <label style="font-family:Arial, Helvetica, sans-serif;padding-left:5px"> Offload Point </label>
+                <input type="text" class="form-control" id="txtOffloadPoint" />
+            </div>
+            <div style="width:100%;display:inline-block">
+                <div class="form-group" style="width:25%;float:left">
+                    &nbsp;<br />
+                    <label style="font-family:Arial, Helvetica, sans-serif;padding-left:5px"> Pkgs. </label>
+                    <br /><br /><br />
+                    <label style="font-family:Arial, Helvetica, sans-serif;padding-left:5px"> Gr. Wt. </label>
+                </div>
+                <div class="form-group" style="width:25%;float:left">
+                    <center>AWB</center>
+                    <input type="text" class="form-control" id="txtPkgAWB" maxlength="5" onkeypress="ClearError(this.id);" />
+                    <br />
+                    <input type="text" class="form-control" id="txtGrWtAWB" maxlength="5" onkeypress="ClearError(this.id);" />
+                </div>
+                <div class="form-group" style="width:25%;float:left">
+                    <center>RCV</center>
+                    <input type="text" class="form-control" style="margin-left:20px" id="txtPkgRCV" maxlength="5" />
+                    <br />
+                    <input type="text" class="form-control" style="margin-left:20px" id="txtGrWtRCV" maxlength="5" />
+                </div>
+            </div>
+            <!--<div >-->
+                <!--<label style="font-family:Arial, Helvetica, sans-serif;padding-left:5px"> Commodity </label>
+                <input type="text" class="form-control" style="margin-left:20px" id="txtCommodity" maxlength="100" />-->
+                <!--<select  name="Commodity" id="ddlCommodity" style="background-color:#fff" >
+                    <option value="0">Select</option>
+                </select>-->
+                <div class="form-group">
+                    <label style="font-family:Arial, Helvetica, sans-serif;padding-left:5px"> Commodity </label>
+                    <input type="text" class="form-control" id="txtCommodity" />
+                </div>
+            <!--</div>--> 
+        </div>
+        <div id="APPFooter" data-role="footer" data-position="fixed">
+            <center>
+                <label style="color:white;font-size:12px;padding-top:2%">Powered by Kale Logistics Solutions Private Limited</label>
+            </center>
+        </div>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+    <script src="scripts/jquery-1.12.0.min.js"></script>
+    <script src="scripts/Jquery-Mobile-1.4.5.js"></script>
+    <script src="scripts/LoadingModel.js"></script>
+    <script src="scripts/LoaderShow-Hide.js"></script>
+    <script src="scripts/dialog.js"></script>
+    <script src="scripts/alert.mob.js"></script>
+    <!--<script src="scripts/ExpSearchAWB.js"></script>-->
+    <script src="js/Export/ExpSearchAWB.js"></script>
+    <link href="css/Loader.css" rel="stylesheet" />
+    <link href="css/dialog.css" rel="stylesheet" />
+    <link href="css/alert.mob.css" rel="stylesheet" />
+    <link href="css/Common.css" rel="stylesheet" />
+    <link href="css/jqueryMobile_1.4.5.min.css" rel="stylesheet" />
+    
+</body>
+</html>

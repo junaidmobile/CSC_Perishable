@@ -1,0 +1,292 @@
+﻿/*body {
+}*/
+.dialog-background {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: Black;
+    filter: alpha(opacity=60);
+    opacity: 0.6;
+    -moz-opacity: 0.8;
+}
+
+.dialog-loading-wrapper {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 0 none;
+    height: 100px;
+    left: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
+    position: fixed;
+    top: 50%;
+    width: 100px;
+    z-index: 9999999;
+}
+
+.dialog-loading-icon {
+    border-radius: 13px;
+    display: block;
+    height: 150px;
+    line-height: 150px;
+    margin: 0;
+    padding: 1px;
+    text-align: center;
+    width: 100px;
+}
+
+.loggedinUser {
+    text-align: right;
+    font-size: x-small;
+    font-family: Arial;
+    color: black;
+}
+
+.form-controlForButtons {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.segmented {
+    padding: 0px;
+}
+
+    .segmented input[type=radio] {
+        display: none;
+    }
+
+    .segmented label {
+        border: outset 1px silver;
+        padding: 2px 16px;
+        margin-right: -5px;
+        background: #ddd;
+        cursor: pointer;
+    }
+
+    .segmented input:checked + label {
+        border: inset 1px silver;
+        background: #aaa;
+    }
+
+fieldset.scheduler-border {
+    border: 1px groove #ddd !important;
+    padding: 0.4em 0.4em 0.4em 0.4em !important;
+    margin: 0 1em 0.5em 1em !important;
+    -webkit-box-shadow: 0px 0px 0px 0px #000;
+    box-shadow: 0px 0px 0px 0px #000;
+}
+
+legend.scheduler-border {
+    font-size: 1.2em !important;
+    font-weight: bold !important;
+    text-align: left !important;
+    width: auto;
+    padding: 0 10px;
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.StepCss {
+    padding: 2px 2px 2px 2px;
+    display: none;
+    border: 1px solid wheat;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-bottom: 3px;
+    background-color: cornsilk;
+}
+
+.labelCssHelpSec {
+    font-size: small;
+    padding: 0px 2px 0px 2px;
+}
+
+.RoundButton {
+    border-radius: 10px;
+}
+
+.TableLableStyle {
+    /*border-right: 2px solid white;*/
+    padding-right: 7px;
+    padding-left: 5px;
+    width: 80%;
+}
+
+.TbllblStyWithBorder {
+    border-right: 2px solid white;
+    padding-right: 7px;
+    padding-left: 5px;
+    width: 80%;
+}
+
+.TableTextBoxStyle {
+    border-left: 3px solid whitesmoke;
+    width: 15%;
+    margin: 1%;
+    text-align: right;
+}
+
+.BoldLabel {
+    font-weight: bold;
+}
+/*Radio Button in Popup Window*/
+.RadioForPopup {
+    margin-left: -20px;
+}
+
+.ButtonColor {
+    background-color: #abc823;
+    /*height: 36px;*/
+    border-radius: 3px;
+}
+
+.navbarImage {
+    height: 50px;
+    padding-left: 10px;
+    /*margin-top: 3px;
+    margin-bottom:3px;*/
+}
+
+.TextAndLable {
+    padding-top: 5px;
+}
+
+.requiredtext {
+    /*border-color: red;*/
+}
+
+.requiredlbltxt {
+    color: red;
+    vertical-align: bottom;
+}
+
+table.sortable thead {
+    background-color: #eee;
+    color: #666666;
+    font-weight: bold;
+    cursor: default;
+}
+
+table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after {
+    content: " \25B4\25BE";
+}
+
+.txtHover {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.img-wrap {
+    position: relative;
+    display: inline-block;
+    /*border: 1px black solid;*/
+    font-size: 0;
+}
+
+    .img-wrap .close {
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        z-index: 100;
+        background-color: #FFF;
+        padding: 5px 2px 2px;
+        color: #000;
+        font-weight: bold;
+        cursor: pointer;
+        opacity: .5;
+        text-align: center;
+        font-size: 22px;
+        line-height: 10px;
+        border-radius: 50%;
+    }
+
+    .img-wrap:hover .close {
+        opacity: 1;
+    }
+
+.rslides {
+    position: relative;
+    list-style: none;
+    overflow: hidden;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+    .rslides li {
+        -webkit-backface-visibility: hidden;
+        position: absolute;
+        display: none;
+        width: 100%;
+        left: 0;
+        top: 0;
+    }
+
+        .rslides li:first-child {
+            position: relative;
+            display: block;
+            float: left;
+        }
+
+    .rslides img {
+        display: block;
+        height: auto;
+        float: left;
+        width: 100%;
+        border: 0;
+    }
+
+.BoldAnchertag {
+    font-weight: bold;
+}
+/*td.highlight {
+        font-weight: bold;
+        color: blue;
+    }
+.loading {
+  background: transparent url('http://thinkfuture.com/wp-content/uploads/2013/10/loading_spinner.gif') center no-repeat;
+}*/
+label {
+    font-weight: 700;
+    font-size: small;
+}
+
+
+.ButtonColor {
+    background-color: #bcd233;
+    color: white;
+}
+
+.col-form-label {
+    padding-left: 5px;
+    padding-right: 10px;
+    font-size: 15px;
+}
+
+.NoPadding {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.ImageSize {
+    width: 100%;
+}
+
+.VerticallyCenter {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+}
+
+body {
+    background-color: beige;
+}
+
+input {
+    text-transform: uppercase;
+}

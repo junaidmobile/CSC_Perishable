@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=0">
+    <script src="cordova.js"></script>
+    <script src="scripts/platformOverrides.js"></script>
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/font-awesome.css" rel="stylesheet" />
+    <script src="scripts/modernizr.custom.js"></script>
+    <link href="css/animate.css" rel="stylesheet" />
+    <script src="scripts/wow.min.js"></script>
+    <script src="scripts/jquery-1.12.0.min.js"></script>
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <script src="scripts/metisMenu.min.js"></script>
+    <script src="scripts/custom.js"></script>
+    <link href="css/custom.css" rel="stylesheet" />
+    <link href="css/sticky-footer.css" rel="stylesheet" />
+    <link href="css/General.css" rel="stylesheet" />
+    <link href="css/hover.css" rel="stylesheet" />
+    <script src="js/general.js"></script>
+    <link href="css/style.css" rel="stylesheet" />
+    <script src="scripts/IMPFlightCheck.js"></script>
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="panel-body">
+            <div class="panel panel-widget forms-panel form-grids widget-shadow" style="margin-top:5%">
+                <div class="forms">
+                    <div class="form-body">
+                        <form>
+                            <div style="display:inline">
+                                <p class="lead">Flight Check</p>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-xs-12 col-sm-3 col-md-2">
+                                    <label id="lblIGMNo" for="txtIGMNo" class="control-label labelFont">IGM No.</label>
+                                    <input type="text" id="txtIGMNo" class="form-control" placeholder="IGM No." autofocus>
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-2 col-md-2">
+                                    <label id="lblYear" for="txtYear" class="control-label">IGM Year</label>
+                                    <input type="text" id="txtYear" class="form-control" placeholder="IGM Year">
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-2 col-md-2" style="margin-top:2%">
+                                    <input type="button" id="btnGetDetail" class="form-control btn-success" value="Get Details" onclick="FlightCheckDetails();">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-widget forms-panel form-grids widget-shadow">
+                <div class="forms">
+                    <div class="form-body">
+                        <form>
+                            <div class="row">
+                                <div class="form-group col-xs-12 col-sm-4 col-md-2">
+                                    <label id="lblFlightNo" for="txtFlightNo" class="control-label">Flight No.</label>
+                                    <input type="text" id="txtFlightNo" class="form-control" placeholder="Flight No.">
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-2 col-md-2">
+                                    <label id="lblFlightDate" for="txtFlightDate" class="control-label">Flight Dt.</label>
+                                    <input type="text" id="txtFlightDate" class="form-control" placeholder="Flight Dt.">
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-2 col-md-2">
+                                    <label id="lblTotCnts" for="txtTotCnts" class="control-label">Tot. Shipments</label>
+                                    <input type="text" id="txtTotCnts" class="form-control" placeholder="Total Shipments">
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-2 col-md-2">
+                                    <label id="lblManiPieces" for="txtManiPieces" class="control-label">Tot. Manifest. Pkgs.</label>
+                                    <input type="text" id="txtManiPieces" class="form-control" placeholder="Total Manifest Pieces">
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-2 col-md-2">
+                                    <label id="lblReceivePieces" for="txtReceivePieces" class="control-label">Tot. Rcved. Pkgs.</label>
+                                    <input type="text" id="txtReceivePieces" class="form-control" placeholder="Tot. Rcved. Pkgs.">
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-2 col-md-2">
+                                    <label id="lblManiGrWt" for="txtManiGrWt" class="control-label">Tot. Manifest Gr. Wt.</label>
+                                    <input type="text" id="txtManiGrWt" class="form-control" placeholder="Tot. Manifest Gr. Wt.">
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-2 col-md-2">
+                                    <label id="lblReceiveGrWt" for="txtReceiveGrWt" class="control-label">Tot. Received Gr. Wt.</label>
+                                    <input type="text" id="txtReceiveGrWt" class="form-control" placeholder="Tot. Rcved Gr. Wt.">
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-2 col-md-2">
+                                    <label id="lblShortPieces" for="txtShortPieces" class="control-label">Tot. Short landed Pkgs.</label>
+                                    <input type="text" id="txtShortPieces" class="form-control" placeholder="Total Shortlanded Pieces">
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-2 col-md-2">
+                                    <label id="lblExcessPieces" for="txtExcessPieces" class="control-label">Tot. Excess landed Pkgs.</label>
+                                    <input type="text" id="txtExcessPieces" class="form-control" placeholder="Tot. Excess landed Pkgs.">
+                                </div>
+                                <div class="form-group col-xs-12 col-sm-2 col-md-2">
+                                    <label id="lblDamagePieces" for="txtDamagePieces" class="control-label">Tot. Damage Pieces </label>
+                                    <input type="text" id="txtDamagePieces" class="form-control" placeholder="Tot. Damage Pkgs.">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
